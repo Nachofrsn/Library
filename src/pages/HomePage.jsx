@@ -1,4 +1,5 @@
 import { Box, Button, Container, Typography } from "@mui/material";
+import { Link } from "react-router-dom";
 
 const HomePage = () => {
   return (
@@ -26,10 +27,10 @@ const HomePage = () => {
           }}
         >
           <Box sx={{ display: "flex", m: 2 }}>
-            <Button variant="contained" color="primary">
+            <Button variant="contained" color="primary" component={Link} to="register">
               Registrarse
             </Button>
-            <Button variant="outlined" color="primary" sx={{ marginLeft: 1 }}>
+            <Button variant="outlined" color="primary" sx={{ marginLeft: 1 }} component={Link} to="login">
               Iniciar sesión
             </Button>
           </Box>
@@ -116,6 +117,8 @@ const HomePage = () => {
             variant="contained"
             color="secondary"
             size="large"
+            component={Link}
+            to="Explore"
             sx={{
               marginBottom: 7,
               width: {

@@ -20,7 +20,79 @@ const StyledPaper = styled(Paper)(({ theme }) => ({
   alignItems: "center",
 }));
 
-const Form = () => {
+const Form = ({ type }) => {
+  if (type === "login") {
+    return (
+      <Container
+        maxWidth="false"
+        sx={{
+          display: "flex",
+          m: 0,
+          justifyContent: "center",
+          alignContent: "center",
+          width: "100vw",
+          height: "100vh",
+          flexDirection: "column",
+          flexWrap: "wrap",
+        }}
+      >
+        <StyledPaper sx={{ display: "flex" }}>
+          <Typography variant="h4" component="p" gutterBottom>
+            Iniciar Sesion
+          </Typography>
+          <Box
+            component="form"
+            sx={{
+              width: "100%",
+              display: "flex",
+              flexDirection: "column",
+              gap: 2,
+              mb: 2,
+            }}
+          >
+            <TextField
+              type="email"
+              label="Email"
+              variant="outlined"
+              fullWidth
+            />
+            <TextField
+              type="password"
+              label="Contraseña"
+              variant="outlined"
+              fullWidth
+            />
+            <Link href="#" variant="body2" align="right">
+              ¿Olvidaste tu contraseña?
+            </Link>
+            <Button variant="contained" color="primary" fullWidth>
+              Iniciar Sesion
+            </Button>
+          </Box>
+          <Typography variant="body2" gutterBottom>
+            ¿No tienes una cuenta? <Link href="register">Registrarse</Link>
+          </Typography>
+          <Box
+            sx={{
+              width: "100%",
+              display: "flex",
+              flexDirection: "column",
+              gap: 2,
+              mt: 2,
+            }}
+          >
+            <Button variant="outlined" fullWidth>
+              Iniciar con GitHub
+            </Button>
+            <Button variant="outlined" fullWidth>
+              Iniciar con Google
+            </Button>
+          </Box>
+        </StyledPaper>
+      </Container>
+    );
+  }
+
   return (
     <Container
       maxWidth="false"
@@ -67,7 +139,7 @@ const Form = () => {
           </Button>
         </Box>
         <Typography variant="body2" gutterBottom>
-          ¿Ya tienes una cuenta? <Link href="#">Iniciar Sesion</Link>
+          ¿Ya tienes una cuenta? <Link href="login">Iniciar Sesion</Link>
         </Typography>
         <Box
           sx={{
